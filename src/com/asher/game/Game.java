@@ -5,31 +5,24 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 
-public class Game extends BasicGame {
+public class Game extends BasicGame 
+{
 
-	public Game(String title) {
-		super(title);
-		
+	public Game (String gamename) 
+	{
+		super(gamename);
 	}
 
 	@Override
-	public void render(GameContainer container, Graphics g)
-			throws SlickException {
-		
+	public void init(GameContainer gc) throws SlickException {}
+	
+	@Override
+	public void update(GameContainer gc, int i) throws SlickException {}
 
-	}
 
 	@Override
-	public void init(GameContainer container) throws SlickException {
-		
-
+	public void render(GameContainer container, Graphics g) throws SlickException {
+		g.drawString("Howdy!", 100, 100); 
 	}
-
-	@Override
-	public void update(GameContainer container, int delta)
-			throws SlickException {
-		
-
-	}
-
+	
 }
