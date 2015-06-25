@@ -4,6 +4,7 @@ import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.geom.Shape;
 
 public class Game extends BasicGame 
 {
@@ -22,7 +23,8 @@ public class Game extends BasicGame
 
 	@Override
 	public void render(GameContainer container, Graphics g) throws SlickException {
-		g.drawString("Howdy!", 100, 100); 
+		g.drawString("Howdy!", 100, 100);
+	
 	}
 	
 }
