@@ -27,7 +27,7 @@ public class BackGround extends BaseEntity {
 		
 
 	}
-
+ 
 	@Override
 	public void render(GameContainer container, Graphics g) throws SlickException {
 		g.drawImage(texture, backGround.getX(), backGround.getY());
