@@ -23,7 +23,7 @@ public class Box extends BaseEntity{
 	@Override
 	public void render(GameContainer container, Graphics g) throws SlickException {
 		// TODO Auto-generated method stub
-		g.setColor(Color.white);
+		g.setColor(Color.blue);
 		g.fill(box);
 	}
 
