@@ -9,10 +9,16 @@ import org.newdawn.slick.geom.Rectangle;
 public class Box extends BaseEntity{
 
 	private Rectangle box;
+	private int speed = 1;
+	private int xVelocity = 1;
+	private int yVelocity = 1;
 	
 	public Box(int zIndex, int x, int y, int width, int height) {
 		super(zIndex);
 		box = new Rectangle(x, y, width, height);
+		box.setX(box.getX() +1);
+		
+		
 	}
 	
 	@Override
