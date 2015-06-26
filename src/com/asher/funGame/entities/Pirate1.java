@@ -11,12 +11,10 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Rectangle;
 
 public class Pirate1<speed> extends BaseEntity {
-
+	
 	private Rectangle pirate1;
 	private Image texture;
-	private int speed = 1;
-	private int xVelocity = 1;
-	private int yVelocity = 1;
+	
 	
 	public Pirate1(int zIndex, int x, int y, int width, int height) {
 		super(zIndex);

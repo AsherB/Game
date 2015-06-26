@@ -36,8 +36,8 @@ public class Game extends BasicGame {
 	@Override
 	public void init(GameContainer container) throws SlickException {
 		bindings = new InputBindings(container.getInput());
-		EntityManager.instance.spawn(new Box(100, 100, 100, 250, 25));
-		EntityManager.instance.spawn(new BackGround()0, 0, 0, 1920, 1080);
+		
+		EntityManager.instance.spawn(new BackGround(0, 0, 0, 1920, 1080));
 		EntityManager.instance.spawn(new Pirate1<Object>(10, 200, 200, 25, 25));
 	}
 
