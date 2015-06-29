@@ -9,6 +9,7 @@ import org.newdawn.slick.SlickException;
 import com.asher.funGame.entities.BackGround;
 import com.asher.funGame.entities.Box;
 import com.asher.funGame.entities.Pirate1;
+import com.asher.funGame.entities.Player;
 import com.asher.funGame.events.Event;
 import com.asher.funGame.events.EventHandler;
 import com.asher.funGame.events.EventSystem;
@@ -36,9 +37,8 @@ public class Game extends BasicGame {
 	@Override
 	public void init(GameContainer container) throws SlickException {
 		bindings = new InputBindings(container.getInput());
-		
-		EntityManager.instance.spawn(new BackGround(0, 0, 0, 1920, 1080));
-		EntityManager.instance.spawn(new Pirate1<Object>(10, 200, 200, 25, 25));
+		EntityManager.instance.spawn(new Box(11, 400, 300, 25, 25));
+		EntityManager.instance.spawn(new Player(10, 300, 300, 25, 25));
 	}
 
 	@Override

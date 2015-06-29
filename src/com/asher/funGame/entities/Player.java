@@ -1,14 +1,21 @@
 package com.asher.funGame.entities;
 
+import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.geom.Rectangle;
+
 
 public class Player extends BaseEntity {
-
-	public Player(int zIndex) {
+	private Rectangle player;
+	 
+	
+	public Player(int zIndex, int x, int y, int width, int height) {
 		super(zIndex);
-		// TODO Auto-generated constructor stub
+		player = new Rectangle(x, y, width, height);
+		
+		
 	}
 
 	@Override
@@ -21,8 +28,9 @@ public class Player extends BaseEntity {
 	@Override
 	public void render(GameContainer container, Graphics g)
 			throws SlickException {
+		g.setColor(Color.green);
+		g.fill(player);
 		
-
 	}
 
 }

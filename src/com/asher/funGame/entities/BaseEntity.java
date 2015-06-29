@@ -7,10 +7,11 @@ import org.newdawn.slick.SlickException;
 import com.asher.funGame.events.EventSystem;
 
 public abstract class BaseEntity extends EventSystem {
-	private final int zIndex;
+	protected int zIndex;
 	
 	public BaseEntity(int zIndex) {
 		this.zIndex = zIndex;
+		
 	}
 	
 	public abstract void update(GameContainer container, int delta) throws SlickException;
