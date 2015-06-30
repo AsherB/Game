@@ -8,6 +8,7 @@ import org.newdawn.slick.SlickException;
 
 import com.asher.funGame.entities.BackGround;
 import com.asher.funGame.entities.Box;
+import com.asher.funGame.entities.Bullet;
 import com.asher.funGame.entities.Pirate1;
 import com.asher.funGame.entities.Player;
 import com.asher.funGame.events.Event;
@@ -19,6 +20,7 @@ import com.asher.funGame.events.EventSystem;
  * @author Isaac
  *
  */
+@SuppressWarnings("unused")
 public class Game extends BasicGame {
 	
 	//Since we can't extend two classes
@@ -39,6 +41,7 @@ public class Game extends BasicGame {
 		bindings = new InputBindings(container.getInput());
 		EntityManager.instance.spawn(new Box(11, 400, 300, 25, 25));
 		EntityManager.instance.spawn(new Player(10, 300, 300, 25, 25));
+		EntityManager.instance.spawn(new Bullet(10, 300, 400, 5, 5));
 	}
 
 	@Override
