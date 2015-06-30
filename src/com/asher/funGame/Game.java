@@ -43,6 +43,7 @@ public class Game extends BasicGame {
 		EntityManager.instance.spawn(new Box(10, 400, 300, 25, 25));
 		EntityManager.instance.spawn(new Ground(10, 0, 1055, 1920, 50));
 		EntityManager.instance.spawn(new Bullet(10, 300, 400, 5, 5));
+		
 	}
 
 	@Override
