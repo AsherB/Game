@@ -8,30 +8,35 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.geom.Shape;
 
+import com.asher.funGame.EntityManager;
 import com.asher.funGame.collision.Collidable;
 import com.asher.funGame.collision.CollisionSystem;
 import com.asher.funGame.events.Event;
 import com.asher.funGame.events.EventHandler;
 
 public class Box extends BaseEntity implements Collidable{
-
+	boolean isDead;
 	private Rectangle box;
 	private int xVelocity = 0;
 	private int yVelocity = 0;
 	private int speed = 0;
+	
 	public Box(int zIndex, int x, int y, int width, int height) {
 		super(zIndex);
 		box = new Rectangle(x, y, 25, 25);
 		this.zIndex = zIndex;
 		CollisionSystem.getInstance().register(this);
+		isDead = false;
 		
 		addEventListener("CollisionEvent", new EventHandler() {
-
+			
 			@Override
 			public void handleEvent(Event e) {
 				System.out.println("HIT");
-				
-				box.setY(box.getY() + yVelocity * speed - 3);
+				if (isDead = true) {
+					System.out.println("DEAD");
+					
+				}
 				
 			}
 			
@@ -66,13 +71,22 @@ public class Box extends BaseEntity implements Collidable{
 		if (box.getY() < 0) {
 			box.setY(0);
 		}
-		
+		if (isDead == true) {
+			box.setX(500);
+			box.setY(1050);
+		}
+		if (box.getX() == 500) {
+			isDead = false;
+		}
 	}
 	
 	@Override
 	public void render(GameContainer container, Graphics g) throws SlickException {
+		if (isDead == false) {
 		g.setColor(Color.red);
 		g.fill(box);
+		g.drawString("Player 1", box.getX() - 19, box.getY() - 20);
+		}
 	}
 
 	@Override

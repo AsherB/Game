@@ -14,19 +14,18 @@ import com.asher.funGame.collision.CollisionSystem;
 import com.asher.funGame.events.Event;
 import com.asher.funGame.events.EventHandler;
 
-public class Bullet extends BaseEntity implements Collidable{
-	private Circle bullet;
+public class ReversedBullet extends BaseEntity implements Collidable{
 	Random r = new Random();
+	private Circle rbullet;
 	private int xVelocity = 0;
 	private int yVelocity = 0;
 	private int speed = 0;
-	int y;
-	int x;
-	public Bullet(int zIndex, int x, int y, int width, int height) {
+	
+	public ReversedBullet(int zIndex, int x, int y, int width, int height) {
 		super(zIndex);
 		y = r.nextInt(1030);
 		x = r.nextInt(1900);
-		bullet = new Circle(x, y, width, height);
+		rbullet = new Circle(x, y, width, height);
 		this.zIndex = zIndex;
 		CollisionSystem.getInstance().register(this);
 		addEventListener("CollisionEvent", new EventHandler() {
@@ -35,14 +34,13 @@ public class Bullet extends BaseEntity implements Collidable{
 			public void handleEvent(Event e) {
 				
 				
-				bullet.setY(bullet.getY() + yVelocity * speed - 3);
-				bullet.setY(bullet.getY() + yVelocity * speed + 3);
-				bullet.setX(bullet.getX() + xVelocity * speed - 3);
-				bullet.setX(bullet.getX() + xVelocity * speed + 3);
+				rbullet.setY(rbullet.getY() + yVelocity * speed - 3);
+				rbullet.setY(rbullet.getY() + yVelocity * speed + 3);
+				rbullet.setX(rbullet.getX() + xVelocity * speed - 3);
+				rbullet.setX(rbullet.getX() + xVelocity * speed + 3);
 			}
 			
 		});
-		
 		
 		
 	}
@@ -50,20 +48,20 @@ public class Bullet extends BaseEntity implements Collidable{
 	@Override
 	public void update(GameContainer container, int delta)
 			throws SlickException {
-		bullet.setX(bullet.getX() + xVelocity * speed + 10);
+		rbullet.setX(rbullet.getX() + xVelocity * speed - 10);
 		
 		
-		if (bullet.getX() > 1915) {
-			bullet.setX(0);
+		if (rbullet.getX() > 1915) {
+			rbullet.setX(0);
 		}
-		if (bullet.getY() > 1075) {
-			bullet.setY(0);
+		if (rbullet.getY() > 1075) {
+			rbullet.setY(0);
 		}
-		if (bullet.getX() < 0) {
-			bullet.setX(1915);
+		if (rbullet.getX() < 0) {
+			rbullet.setX(1915);
 		}
-		if (bullet.getY() < 0) {
-			bullet.setY(0);
+		if (rbullet.getY() < 0) {
+			rbullet.setY(0);
 		}
 	}
 
@@ -71,20 +69,20 @@ public class Bullet extends BaseEntity implements Collidable{
 	public void render(GameContainer container, Graphics g)
 			throws SlickException {
 		g.setColor(Color.gray);
-		g.fill(bullet);
+		g.fill(rbullet);
 		
 	}
 
 	@Override
 	public Shape getCollisionBouds() {
 		// TODO Auto-generated method stub
-		return bullet;
+		return rbullet;
 	}
 
 	@Override
 	public boolean collidesWith(Collidable c) {
 		// TODO Auto-generated method stub
-		return bullet.intersects(c.getCollisionBouds());
+		return rbullet.intersects(c.getCollisionBouds());
 	}
 
 }

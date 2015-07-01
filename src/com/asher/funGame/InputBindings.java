@@ -11,7 +11,7 @@ public class InputBindings implements InputProviderListener {
 
 	private InputProvider provider;
 	
-	InputBindings(Input i) {
+	public InputBindings(Input i) {
 		provider = new InputProvider(i);
 		provider.addListener(this);
 		
