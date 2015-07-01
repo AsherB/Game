@@ -86,6 +86,9 @@ public class Box2 extends BaseEntity implements Collidable{
 		g.fill(box2);
 		g.drawString("Player 2", box2.getX() - 19, box2.getY() - 20);
 		}
+		if (box2.getY() == 0) {
+			g.drawString("YOU MADE IT!", box2.getX() + 25, box2.getY() + 25);
+		}
 	}
 
 	@Override
