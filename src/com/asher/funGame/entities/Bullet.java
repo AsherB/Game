@@ -26,6 +26,9 @@ public class Bullet extends BaseEntity implements Collidable{
 		super(zIndex);
 		y = r.nextInt(1030);
 		x = r.nextInt(1900);
+		width = r.nextInt(40);
+		height = r.nextInt(40);
+		width = height;
 		bullet = new Circle(x, y, width, height);
 		this.zIndex = zIndex;
 		CollisionSystem.getInstance().register(this);
@@ -35,10 +38,9 @@ public class Bullet extends BaseEntity implements Collidable{
 			public void handleEvent(Event e) {
 				
 				
-				bullet.setY(bullet.getY() + yVelocity * speed - 3);
-				bullet.setY(bullet.getY() + yVelocity * speed + 3);
+				
+				
 				bullet.setX(bullet.getX() + xVelocity * speed - 3);
-				bullet.setX(bullet.getX() + xVelocity * speed + 3);
 			}
 			
 		});
@@ -64,6 +66,12 @@ public class Bullet extends BaseEntity implements Collidable{
 		}
 		if (bullet.getY() < 0) {
 			bullet.setY(0);
+		}
+		if (bullet.getY() < 30) {
+			bullet.setY(30);
+		}
+		if (bullet.getY() > 1060) {
+			bullet.setY(1060);
 		}
 	}
 

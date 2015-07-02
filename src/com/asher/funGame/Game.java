@@ -4,6 +4,7 @@ package com.asher.funGame;
 import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 
 import com.asher.funGame.collision.CollisionSystem;
@@ -26,7 +27,7 @@ import com.asher.funGame.events.EventSystem;
  */
 @SuppressWarnings("unused")
 public class Game extends BasicGame {
-	
+	boolean isSpawned;
 	//Since we can't extend two classes
 	private static EventSystem es = new EventSystem();
 	private InputBindings bindings;
@@ -45,8 +46,7 @@ public class Game extends BasicGame {
 		bindings = new InputBindings(container.getInput());
 		EntityManager.instance.spawn(new Box(10, 500, 1050, 25, 25));
 		EntityManager.instance.spawn(new Box2(10, 400, 1050, 25, 25));
-		EntityManager.instance.spawn(new Spawner(1, 0, 0, 0, 0));
-		
+		EntityManager.instance.spawn(new Spawner(0, 0, 0, 0, 0));
 		
 	}
 
@@ -54,6 +54,9 @@ public class Game extends BasicGame {
 	public void update(GameContainer container, int delta) throws SlickException {
 		EntityManager.instance.__updateEntities(container, delta);
 		CollisionSystem.getInstance().update();
+		isSpawned = true;
+		Input in = container.getInput();
+		
 	}
 	
 	/**

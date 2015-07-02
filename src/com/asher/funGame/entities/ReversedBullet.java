@@ -25,6 +25,10 @@ public class ReversedBullet extends BaseEntity implements Collidable{
 		super(zIndex);
 		y = r.nextInt(1030);
 		x = r.nextInt(1900);
+		width = r.nextInt(40);
+		height = r.nextInt(40);
+		width = height;
+		
 		rbullet = new Circle(x, y, width, height);
 		this.zIndex = zIndex;
 		CollisionSystem.getInstance().register(this);
@@ -34,10 +38,8 @@ public class ReversedBullet extends BaseEntity implements Collidable{
 			public void handleEvent(Event e) {
 				
 				
-				rbullet.setY(rbullet.getY() + yVelocity * speed - 3);
-				rbullet.setY(rbullet.getY() + yVelocity * speed + 3);
+				
 				rbullet.setX(rbullet.getX() + xVelocity * speed - 3);
-				rbullet.setX(rbullet.getX() + xVelocity * speed + 3);
 			}
 			
 		});
@@ -62,6 +64,12 @@ public class ReversedBullet extends BaseEntity implements Collidable{
 		}
 		if (rbullet.getY() < 0) {
 			rbullet.setY(0);
+		}
+		if (rbullet.getY() < 30) {
+			rbullet.setY(30);
+		}
+		if (rbullet.getY() > 1070) {
+			rbullet.setY(1070);
 		}
 	}
 

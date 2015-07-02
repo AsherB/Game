@@ -14,6 +14,7 @@ import com.asher.funGame.events.EventHandler;
 
 public class Box2 extends BaseEntity implements Collidable{
 	boolean isDead;
+	
 	private Rectangle box2;
 	private int xVelocity = 0;
 	private int yVelocity = 0;
@@ -28,7 +29,7 @@ public class Box2 extends BaseEntity implements Collidable{
 
 			@Override
 			public void handleEvent(Event e) {
-				System.out.println("HIT");
+				
 				if (isDead = true) {
 					System.out.println("DEAD");
 				}
@@ -72,8 +73,7 @@ public class Box2 extends BaseEntity implements Collidable{
 		if (box2.getX() == 400) {
 			isDead = false;
 		}
-			
-			
+					
 				
 			
 		
@@ -81,14 +81,16 @@ public class Box2 extends BaseEntity implements Collidable{
 	
 	@Override
 	public void render(GameContainer container, Graphics g) throws SlickException {
+		
 		if (isDead == false) {
 		g.setColor(Color.blue);
 		g.fill(box2);
 		g.drawString("Player 2", box2.getX() - 19, box2.getY() - 20);
 		}
 		if (box2.getY() == 0) {
-			g.drawString("YOU MADE IT!", box2.getX() + 25, box2.getY() + 25);
+			g.drawString("YOU MADE IT!", 910, 540);
 		}
+		
 	}
 
 	@Override

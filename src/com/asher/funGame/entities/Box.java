@@ -32,7 +32,7 @@ public class Box extends BaseEntity implements Collidable{
 			
 			@Override
 			public void handleEvent(Event e) {
-				System.out.println("HIT");
+				
 				if (isDead = true) {
 					System.out.println("DEAD");
 					
@@ -78,6 +78,7 @@ public class Box extends BaseEntity implements Collidable{
 		if (box.getX() == 500) {
 			isDead = false;
 		}
+		
 	}
 	
 	@Override
@@ -88,7 +89,8 @@ public class Box extends BaseEntity implements Collidable{
 		g.drawString("Player 1", box.getX() - 19, box.getY() - 20);
 		}
 		if (box.getY() == 0) {
-			g.drawString("YOU MADE IT!", box.getX() + 25, box.getY() + 25);
+			g.drawString("YOU MADE IT!", 910, 540);
+			
 		
 		}
 	}
